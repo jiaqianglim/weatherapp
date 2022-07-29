@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+     - main
+jobs:
+  build:
+    runs-on: ubunto-latest
+    steps:
+     - uses: actions/checkout@v2
+     - uses: akhleshns/heroku-deploy@3.12.12
+      with:
+        heroku_api_key: ${secrets.HEROKU_API_KEY}
+        heroku_app_name: "MyWeatherApp"
+        heroku_email: "@gmail.com"
+
